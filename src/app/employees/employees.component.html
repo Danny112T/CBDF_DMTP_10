@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Listado de empleados - se ve así porque usamos bootstrap</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Sueldo</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let empleado of empleados">
+        <th scope="row">{{empleado.id}}</th>
+        <td>{{empleado.name}}</td>
+        <td>{{empleado.salary}}</td>
+        <td *ngIf="empleado.active; else elseblock ">Activo</td>
+        <ng-template #elseblock><td>Inactivo</td></ng-template>
+        <td>
+          <button type="button" class="btn btn-primary">Editar</button>&nbsp;
+          <button type="button" class="btn btn-danger">Eliminar</button>&nbsp;
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
